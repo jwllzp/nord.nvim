@@ -101,6 +101,11 @@ function M.setup(opts)
 	hi("@markup.heading.4.markdown", { link = "Title" })
 	hi("@markup.heading.5.markdown", { link = "Title" })
 	hi("@markup.heading.6.markdown", { link = "Title" })
+
+	-- python
+	hi("@constructor.python", { link = "Function" })
+	hi("@module.python", { link = "Identifier" })
+	hi("@variable.parameter.python", { link = "Normal" })
 end
 
 return M
