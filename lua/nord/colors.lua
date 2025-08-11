@@ -1,9 +1,12 @@
 local M = {
+	none = "NONE",
 	polar = {
+		darkest = "#1e2127",
 		darker = "#2e3440",
 		dark = "#3b4252",
 		light = "#434c5e",
 		lighter = "#4c566a",
+		lightest = "#7B88A1",
 	},
 	snow = {
 		dark = "#d8dee9",

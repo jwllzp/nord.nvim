@@ -1,156 +1,157 @@
 local M = {}
+local c = require("nord.colors")
+local hi = require("nord.utils").hi
 
-function M.setup(colors)
-	local function hi(group, opts)
-		vim.api.nvim_set_hl(0, group, opts)
-	end
+function M.setup(opts)
+	opts = opts or {}
+	local transparent = opts["transparent"]
 
 	-- Normal text
-	hi("Normal", { fg = colors.snow.dark, bg = colors.polar.darker })
-	hi("NormalFloat", { fg = colors.snow.dark, bg = colors.polar.dark })
-	hi("NormalNC", { fg = colors.snow.dark, bg = colors.polar.darker })
+	hi("Normal", { fg = c.snow.dark, bg = transparent and c.none or c.polar.darkest })
+	hi("NormalFloat", { fg = c.snow.dark, bg = c.polar.darkest })
+	hi("NormalNC", { fg = c.snow.dark, bg = c.polar.darkester })
 
 	-- Line numbers
-	hi("LineNr", { fg = colors.snow.dark })
-	hi("LineNrAbove", { fg = colors.snow.dark })
-	hi("LineNrBelow", { fg = colors.snow.dark })
-	hi("CursorLineNr", { fg = colors.snow.dark })
+	hi("LineNr", { fg = c.polar.dark })
+	hi("LineNrAbove", { fg = c.polar.dark })
+	hi("LineNrBelow", { fg = c.polar.dark })
+	hi("CursorLineNr", { fg = c.snow.dark })
 
 	-- Cursor
-	hi("Cursor", { fg = colors.snow.dark, bg = colors.snow.dark })
-	hi("CursorLine", { bg = colors.polar.dark })
-	hi("CursorColumn", { bg = colors.polar.dark })
+	hi("Cursor", { reverse = true })
+	hi("CursorLine", {})
+	hi("CursorColumn", {})
 
 	-- Visual selection
-	hi("Visual", { bg = colors.polar.light })
-	hi("VisualNOS", { bg = colors.polar.light })
+	hi("Visual", { bg = c.polar.dark })
+	hi("VisualNOS", { bg = c.polar.dark })
 
 	-- Search
-	hi("Search", { fg = colors.snow.dark, bg = colors.aurora.yellow })
-	hi("IncSearch", { fg = colors.snow.dark, bg = colors.aurora.yellow })
+	hi("Search", { fg = c.snow.dark, bg = c.aurora.yellow })
+	hi("IncSearch", { fg = c.snow.dark, bg = c.aurora.yellow })
 
 	-- Status line
-	hi("StatusLine", { fg = colors.snow.dark, bg = colors.polar.light })
-	hi("StatusLineNC", { fg = colors.snow.dark, bg = colors.polar.dark })
-	hi("StatusLineTerm", { fg = colors.snow.dark, bg = colors.polar.light })
-	hi("StatusLineTermNC", { fg = colors.snow.dark, bg = colors.polar.dark })
+	hi("StatusLine", { fg = c.snow.dark, bg = c.polar.light })
+	hi("StatusLineNC", { fg = c.snow.dark, bg = c.polar.darkest })
+	hi("StatusLineTerm", { fg = c.snow.dark, bg = c.polar.light })
+	hi("StatusLineTermNC", { fg = c.snow.dark, bg = c.polar.darkest })
 
 	-- Tab line
-	hi("TabLine", { fg = colors.snow.dark, bg = colors.polar.dark })
-	hi("TabLineFill", { fg = colors.snow.dark, bg = colors.polar.dark })
-	hi("TabLineSel", { fg = colors.snow.dark, bg = colors.polar.light })
+	hi("TabLine", { fg = c.snow.dark, bg = c.polar.darkest })
+	hi("TabLineFill", { fg = c.snow.dark, bg = c.polar.darkest })
+	hi("TabLineSel", { fg = c.snow.dark, bg = c.polar.light })
 
 	-- Window/Tab separators
-	hi("VertSplit", { fg = colors.snow.dark })
-	hi("WinSeparator", { fg = colors.snow.dark })
+	hi("VertSplit", { fg = c.snow.dark })
+	hi("WinSeparator", { fg = c.snow.dark })
 
 	-- Folding
-	hi("Folded", { fg = colors.snow.dark, bg = colors.polar.dark })
-	hi("FoldColumn", { fg = colors.snow.dark })
+	hi("Folded", { fg = c.snow.dark, bg = c.polar.darkest })
+	hi("FoldColumn", { fg = c.snow.dark })
 
 	-- Menu
-	hi("Pmenu", { fg = colors.snow.dark, bg = colors.polar.light })
-	hi("PmenuSel", { fg = colors.snow.dark, bg = colors.polar.dark })
-	hi("PmenuSbar", { fg = colors.snow.dark, bg = colors.polar.dark })
-	hi("PmenuThumb", { fg = colors.snow.dark, bg = colors.polar.lighter })
+	hi("Pmenu", { fg = c.snow.dark, bg = c.polar.light })
+	hi("PmenuSel", { fg = c.snow.dark, bg = c.polar.darkest })
+	hi("PmenuSbar", { fg = c.snow.dark, bg = c.polar.darkest })
+	hi("PmenuThumb", { fg = c.snow.dark, bg = c.polar.lighter })
 
 	-- Wild menu
-	hi("WildMenu", { fg = colors.snow.dark, bg = colors.polar.light })
+	hi("WildMenu", { fg = c.snow.dark, bg = c.polar.light })
 
 	-- Messages
-	hi("ErrorMsg", { fg = colors.snow.dark, bg = colors.aurora.red })
-	hi("WarningMsg", { fg = colors.snow.dark, bg = colors.aurora.orange })
-	hi("MoreMsg", { fg = colors.snow.dark })
-	hi("ModeMsg", { fg = colors.snow.dark })
+	hi("ErrorMsg", { fg = c.snow.dark, bg = c.aurora.red })
+	hi("WarningMsg", { fg = c.snow.dark, bg = c.aurora.orange })
+	hi("MoreMsg", { fg = c.snow.dark })
+	hi("ModeMsg", { fg = c.snow.dark })
 
 	-- Question
-	hi("Question", { fg = colors.snow.dark })
+	hi("Question", { fg = c.snow.dark })
 
 	-- Non-text
-	hi("NonText", { fg = colors.snow.dark })
-	hi("EndOfBuffer", { fg = colors.snow.dark })
-	hi("SignColumn", { fg = colors.snow.dark })
+	hi("NonText", { fg = c.snow.dark })
+	hi("EndOfBuffer", { fg = c.snow.dark })
+	hi("SignColumn", { fg = c.snow.dark })
 
 	-- Special keys
-	hi("SpecialKey", { fg = colors.snow.dark })
-	hi("Whitespace", { fg = colors.snow.dark })
+	hi("SpecialKey", { fg = c.snow.dark })
+	hi("Whitespace", { fg = c.snow.dark })
 
 	-- Conceal
-	hi("Conceal", { fg = colors.snow.dark })
+	hi("Conceal", { fg = c.snow.dark })
 
 	-- Spell
-	hi("SpellBad", { fg = colors.snow.dark, bg = colors.aurora.red })
-	hi("SpellCap", { fg = colors.snow.dark, bg = colors.aurora.yellow })
-	hi("SpellLocal", { fg = colors.snow.dark, bg = colors.aurora.yellow })
-	hi("SpellRare", { fg = colors.snow.dark, bg = colors.aurora.yellow })
+	hi("SpellBad", { fg = c.snow.dark, bg = c.aurora.red })
+	hi("SpellCap", { fg = c.snow.dark, bg = c.aurora.yellow })
+	hi("SpellLocal", { fg = c.snow.dark, bg = c.aurora.yellow })
+	hi("SpellRare", { fg = c.snow.dark, bg = c.aurora.yellow })
 
 	-- Diff
-	hi("DiffAdd", { fg = colors.snow.dark, bg = colors.aurora.green })
-	hi("DiffChange", { fg = colors.snow.dark, bg = colors.aurora.orange })
-	hi("DiffDelete", { fg = colors.snow.dark, bg = colors.aurora.red })
-	hi("DiffText", { fg = colors.snow.dark, bg = colors.aurora.orange })
+	hi("DiffAdd", { fg = c.snow.dark, bg = c.aurora.green })
+	hi("DiffChange", { fg = c.snow.dark, bg = c.aurora.orange })
+	hi("DiffDelete", { fg = c.snow.dark, bg = c.aurora.red })
+	hi("DiffText", { fg = c.snow.dark, bg = c.aurora.orange })
 
 	-- Directory
-	hi("Directory", { fg = colors.snow.dark })
+	hi("Directory", { fg = c.frost.cyan })
 
 	-- Title
-	hi("Title", { fg = colors.snow.dark })
+	hi("Title", { fg = c.snow.dark })
 
 	-- Quickfix
-	hi("QuickFixLine", { fg = colors.snow.dark, bg = colors.polar.light })
-	hi("qfLineNr", { fg = colors.snow.dark })
+	hi("QuickFixLine", { fg = c.snow.dark, bg = c.polar.light })
+	hi("qfLineNr", { fg = c.snow.dark })
 
 	-- Terminal
-	hi("Terminal", { fg = colors.snow.dark })
+	hi("Terminal", { fg = c.snow.dark })
 
 	-- Popup
-	hi("PopupNotification", { fg = colors.snow.dark, bg = colors.polar.light })
-	hi("PopupNotificationError", { fg = colors.snow.dark, bg = colors.aurora.red })
-	hi("PopupNotificationWarning", { fg = colors.snow.dark, bg = colors.aurora.orange })
-	hi("PopupNotificationInfo", { fg = colors.snow.dark, bg = colors.frost.blue })
+	hi("PopupNotification", { fg = c.snow.dark, bg = c.polar.light })
+	hi("PopupNotificationError", { fg = c.snow.dark, bg = c.aurora.red })
+	hi("PopupNotificationWarning", { fg = c.snow.dark, bg = c.aurora.orange })
+	hi("PopupNotificationInfo", { fg = c.snow.dark, bg = c.frost.blue })
 
 	-- Syntax highlighting (basic)
-	hi("Comment", { fg = colors.snow.dark, italic = true })
-	hi("Constant", { fg = colors.snow.dark })
-	hi("String", { fg = colors.snow.dark })
-	hi("Character", { fg = colors.snow.dark })
-	hi("Number", { fg = colors.snow.dark })
-	hi("Boolean", { fg = colors.snow.dark })
-	hi("Float", { fg = colors.snow.dark })
+	hi("Comment", { fg = c.polar.lighter })
+	hi("Constant", { fg = c.snow.dark })
+	hi("String", { fg = c.aurora.green })
+	hi("Character", { fg = c.snow.dark })
+	hi("Number", { fg = c.aurora.purple })
+	hi("Boolean", { fg = c.frost.purple })
+	hi("Float", { fg = c.aurora.purple })
 
-	hi("Identifier", { fg = colors.snow.dark })
-	hi("Function", { fg = colors.snow.dark })
+	hi("Identifier", { fg = c.polar.lightest })
+	hi("Function", { fg = c.frost.cyan })
 
-	hi("Statement", { fg = colors.snow.dark })
-	hi("Conditional", { fg = colors.snow.dark })
-	hi("Repeat", { fg = colors.snow.dark })
-	hi("Label", { fg = colors.snow.dark })
-	hi("Operator", { fg = colors.snow.dark })
-	hi("Keyword", { fg = colors.snow.dark })
-	hi("Exception", { fg = colors.snow.dark })
+	hi("Statement", { fg = c.snow.dark })
+	hi("Conditional", { fg = c.frost.purple })
+	hi("Repeat", { fg = c.frost.purple })
+	hi("Label", { fg = c.snow.dark })
+	hi("Operator", { fg = c.frost.purple })
+	hi("Keyword", { fg = c.frost.purple })
+	hi("Exception", { fg = c.frost.purple })
 
-	hi("PreProc", { fg = colors.snow.dark })
-	hi("Include", { fg = colors.snow.dark })
-	hi("Define", { fg = colors.snow.dark })
-	hi("Macro", { fg = colors.snow.dark })
-	hi("PreCondit", { fg = colors.snow.dark })
+	hi("PreProc", { fg = c.snow.dark })
+	hi("Include", { fg = c.frost.purple })
+	hi("Define", { fg = c.snow.dark })
+	hi("Macro", { fg = c.snow.dark })
+	hi("PreCondit", { fg = c.snow.dark })
 
-	hi("Type", { fg = colors.snow.dark })
-	hi("StorageClass", { fg = colors.snow.dark })
-	hi("Structure", { fg = colors.snow.dark })
-	hi("Typedef", { fg = colors.snow.dark })
+	hi("Type", { fg = c.frost.cyan })
+	hi("StorageClass", { fg = c.snow.dark })
+	hi("Structure", { fg = c.snow.dark })
+	hi("Typedef", { fg = c.snow.dark })
 
-	hi("Special", { fg = colors.snow.dark })
-	hi("SpecialChar", { fg = colors.snow.dark })
-	hi("Tag", { fg = colors.snow.dark })
-	hi("Delimiter", { fg = colors.snow.dark })
-	hi("SpecialComment", { fg = colors.snow.dark })
-	hi("Debug", { fg = colors.snow.dark })
+	hi("Special", { fg = c.frost.purple })
+	hi("SpecialChar", { fg = c.snow.dark })
+	hi("Tag", { fg = c.snow.dark })
+	hi("Delimiter", { fg = c.frost.purple })
+	hi("SpecialComment", { fg = c.snow.dark })
+	hi("Debug", { fg = c.snow.dark })
 
-	hi("Underlined", { fg = colors.snow.dark, underline = true })
-	hi("Ignore", { fg = colors.snow.dark })
-	hi("Error", { fg = colors.snow.dark, bg = colors.aurora.red })
-	hi("Todo", { fg = colors.snow.dark, bg = colors.aurora.yellow })
+	hi("Underlined", { fg = c.snow.dark, underline = true })
+	hi("Ignore", { fg = c.snow.dark })
+	hi("Error", { fg = c.snow.dark, bg = c.aurora.red })
+	hi("Todo", { fg = c.snow.dark, bg = c.aurora.yellow })
 end
 
 return M
