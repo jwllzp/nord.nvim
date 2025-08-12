@@ -7,13 +7,9 @@ function M.setup()
 		vim.cmd("syntax reset")
 	end
 
-	local module_name
-	for _, file_path in ipairs(vim.fn.readdir("lua/nord/highlights/")) do
-		file_path, _ = file_path:gsub("%.lua", "")
-		print("nord." .. file_path)
-		module_name = "nord.highlights." .. file_path
-
-		require(module_name).setup()
+	local files = vim.api.nvim_get_runtime_file("lua/nord/highlights/*.lua", true)
+	for _, file in ipairs(files) do
+		dofile(file).setup()
 	end
 end
 
