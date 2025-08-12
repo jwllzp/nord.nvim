@@ -7,10 +7,10 @@ function M.setup()
 		vim.cmd("syntax reset")
 	end
 
-	require("nord.highlights").setup()
-	require("nord.treesitter").setup()
-	require("nord.rainbow-delimiters").setup()
-	require("nord.semantic-tokens").setup()
+	local files = vim.api.nvim_get_runtime_file("lua/nord/highlights/*.lua", true)
+	for _, file in ipairs(files) do
+		dofile(file).setup()
+	end
 end
 
 return M

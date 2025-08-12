@@ -1,8 +1,5 @@
 local M = {}
-
-local function hi(group, opts)
-	vim.api.nvim_set_hl(0, group, opts)
-end
+local hi = require("nord.utils").hi
 
 function M.setup()
 	hi("RainbowDelimiterYellow", { fg = "#ffd700" })

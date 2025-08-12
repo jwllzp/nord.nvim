@@ -1,6 +1,6 @@
 local M = {}
-local c = require("nord.colors")
 local hi = require("nord.utils").hi
+local c = require("nord.colors")
 
 function M.setup(opts)
 	opts = opts or {}
