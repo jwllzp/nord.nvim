@@ -9,12 +9,12 @@ A Neovim colorscheme based off [Cursor's](https://cursor.com/home?from=agents) t
 ### lazy.nvim
 ```lua
 {
-	"jwllzp/nord.nvim",
-	lazy = false,
+  "jwllzp/nord.nvim",
+  lazy = false,
   priority = 1000,
-	config = function()
-		require("nord").setup()
-	end,
+  config = function()
+    require("nord").setup()
+  end,
 }
 ```
 
