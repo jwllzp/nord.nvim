@@ -1,5 +1,6 @@
 local M = {}
 local hi = require("nord.utils").hi
+local c = require("nord.colors")
 
 function M.setup(opts)
 	opts = opts or {}
@@ -95,12 +96,12 @@ function M.setup(opts)
 	hi("@error", { link = "Error" })
 	hi("@function.builtin.bash", { link = "Special" })
 	hi("@variable.parameter.bash", { link = "Identifier" })
-	hi("@markup.heading.1.markdown", { link = "Title" })
-	hi("@markup.heading.2.markdown", { link = "Title" })
-	hi("@markup.heading.3.markdown", { link = "Title" })
-	hi("@markup.heading.4.markdown", { link = "Title" })
-	hi("@markup.heading.5.markdown", { link = "Title" })
-	hi("@markup.heading.6.markdown", { link = "Title" })
+	hi("@markup.heading.1.markdown", { fg = c.aurora.purple })
+	hi("@markup.heading.2.markdown", { fg = c.aurora.green })
+	hi("@markup.heading.3.markdown", { fg = c.aurora.yellow })
+	hi("@markup.heading.4.markdown", { fg = c.aurora.orange })
+	hi("@markup.heading.5.markdown", { fg = c.aurora.red })
+	hi("@markup.heading.6.markdown", { fg = c.aurora.red })
 
 	-- python
 	hi("@constructor.python", { link = "Function" })
