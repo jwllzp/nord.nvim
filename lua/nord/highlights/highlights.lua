@@ -8,7 +8,7 @@ function M.setup(opts)
 
 	-- Normal text
 	hi("Normal", { fg = c.snow.dark, bg = transparent and c.none or c.polar.darkest })
-	hi("NormalFloat", { fg = c.snow.dark, bg = c.polar.darkest })
+	hi("NormalFloat", { fg = c.snow.dark, bg = c.polar.hyperdark })
 	hi("NormalNC", { fg = c.snow.dark, bg = c.polar.darkester })
 
 	-- Line numbers
@@ -50,10 +50,10 @@ function M.setup(opts)
 	hi("FoldColumn", { fg = c.snow.dark })
 
 	-- Menu
-	hi("Pmenu", { fg = c.snow.dark, bg = c.polar.light })
-	hi("PmenuSel", { fg = c.snow.dark, bg = c.polar.darkest })
-	hi("PmenuSbar", { fg = c.snow.dark, bg = c.polar.darkest })
-	hi("PmenuThumb", { fg = c.snow.dark, bg = c.polar.lighter })
+	hi("Pmenu", { fg = c.snow.dark, bg = c.polar.hyperdark })
+	hi("PmenuSel", { fg = c.snow.dark, bg = c.polar.dark })
+	hi("PmenuSbar", { fg = c.snow.dark, bg = c.polar.dark })
+	hi("PmenuThumb", { fg = c.snow.dark, bg = c.polar.hyperdark })
 
 	-- Wild menu
 	hi("WildMenu", { fg = c.snow.dark, bg = c.polar.light })

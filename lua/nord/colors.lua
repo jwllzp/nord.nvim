@@ -1,6 +1,7 @@
 local M = {
 	none = "NONE",
 	polar = {
+		hyperdark = "#191c22",
 		darkest = "#1e2127",
 		darker = "#2e3440",
 		dark = "#3b4252",
