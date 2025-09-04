@@ -8,7 +8,7 @@ function M.setup(opts)
 
 	-- Normal text
 	hi("Normal", { fg = c.snow.dark, bg = transparent and c.none or c.polar.darkest })
-	hi("NormalFloat", { fg = c.snow.dark, bg = c.polar.hyperdark })
+	hi("NormalFloat", { fg = c.snow.dark, bg = transparent and c.none or c.polar.hyperdark })
 	hi("NormalNC", { fg = c.snow.dark, bg = c.polar.darkester })
 
 	-- Line numbers
