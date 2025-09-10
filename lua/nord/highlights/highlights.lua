@@ -131,7 +131,7 @@ function M.setup(opts)
 	hi("Exception", { fg = c.frost.purple, bold=true })
 
 	hi("PreProc", { fg = c.snow.dark })
-	hi("Include", { fg = c.frost.purple })
+	hi("Include", { fg = c.frost.purple, bold=true})
 	hi("Define", { fg = c.snow.dark })
 	hi("Macro", { fg = c.snow.dark })
 	hi("PreCondit", { fg = c.snow.dark })
